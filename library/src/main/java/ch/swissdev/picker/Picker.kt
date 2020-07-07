@@ -2,6 +2,7 @@ package ch.swissdev.picker
 
 import android.content.Context
 import android.util.AttributeSet
+import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import ch.swissdev.library.R
 
@@ -15,6 +16,8 @@ class Picker(context: Context, attrs: AttributeSet) : RecyclerView(context, attr
 
         clipToPadding = false
         layoutManager = LayoutManager(context, if (isHorizontal) HORIZONTAL else VERTICAL)
+
+        LinearSnapHelper().attachToRecyclerView(this)
     }
 
     override fun onMeasure(widthSpec: Int, heightSpec: Int) {
@@ -30,8 +33,8 @@ class Picker(context: Context, attrs: AttributeSet) : RecyclerView(context, attr
     }
 
     override fun onAttachedToWindow() {
-        smoothScrollToPosition(0)
         super.onAttachedToWindow()
+        smoothScrollToPosition(0)
     }
 
 }

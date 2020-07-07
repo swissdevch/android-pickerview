@@ -23,14 +23,7 @@ class PickerFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         picker_horizontal.adapter = PickerAdapter(R.layout.picker_element_horizontal)
-
-        val snapHelper = LinearSnapHelper()
-        snapHelper.attachToRecyclerView(picker_horizontal)
-
         picker_vertical.adapter = PickerAdapter(R.layout.picker_element_vertical)
-
-        val snapHelper2 = LinearSnapHelper()
-        snapHelper2.attachToRecyclerView(picker_vertical)
     }
 
 }
