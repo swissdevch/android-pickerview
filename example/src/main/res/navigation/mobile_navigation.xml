@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@id/nav_picker">
 
     <fragment
         android:id="@+id/nav_home"
@@ -22,4 +22,10 @@
         android:name="ch.swissdev.library.example.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
+
+    <fragment
+        android:id="@+id/nav_picker"
+        android:name="ch.swissdev.library.example.ui.picker.PickerFragment"
+        android:label="@string/menu_picker"
+        tools:layout="@layout/fragment_picker" />
 </navigation>
