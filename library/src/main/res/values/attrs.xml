@@ -5,5 +5,6 @@
             <enum name="horizontal" value="0" />
             <enum name="vertical" value="1" />
         </attr>
+        <attr name="fade" format="boolean" />
     </declare-styleable>
 </resources>

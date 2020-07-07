@@ -2,22 +2,29 @@ package ch.swissdev.picker
 
 import android.content.Context
 import android.util.AttributeSet
+import android.view.View
 import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import ch.swissdev.library.R
 
 class Picker(context: Context, attrs: AttributeSet) : RecyclerView(context, attrs) {
 
-    private var isHorizontal: Boolean
+    private val isHorizontal: Boolean
 
     init {
         val styledAttributes = context.theme.obtainStyledAttributes(attrs, R.styleable.Picker, 0, 0)
         isHorizontal = styledAttributes.getInteger(R.styleable.Picker_orientation, 0) == 0
+        val isFaded = styledAttributes.getBoolean(R.styleable.Picker_fade, false)
 
         clipToPadding = false
-        layoutManager = LayoutManager(context, if (isHorizontal) HORIZONTAL else VERTICAL)
+        layoutManager = PickerLayoutManager(context, if (isHorizontal) HORIZONTAL else VERTICAL, isFaded)
 
-        LinearSnapHelper().attachToRecyclerView(this)
+        val snapHelper = LinearSnapHelper()
+        snapHelper.attachToRecyclerView(this)
+    }
+
+    fun scrollToView(tappedView: View) {
+        smoothScrollToPosition(getChildAdapterPosition(tappedView))
     }
 
     override fun onMeasure(widthSpec: Int, heightSpec: Int) {

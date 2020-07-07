@@ -22,8 +22,11 @@ class PickerFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        picker_horizontal.adapter = PickerAdapter(R.layout.picker_element_horizontal)
-        picker_vertical.adapter = PickerAdapter(R.layout.picker_element_vertical)
+        // TODO: Get rid of callback
+        picker_horizontal.adapter = PickerAdapter(R.layout.picker_element_horizontal, picker_horizontal::scrollToView)
+        picker_horizontal_with_fade.adapter = PickerAdapter(R.layout.picker_element_horizontal, picker_horizontal_with_fade::scrollToView)
+        picker_horizontal_with_color.adapter = PickerAdapter(R.layout.picker_element_horizontal, picker_horizontal_with_color::scrollToView)
+        picker_vertical.adapter = PickerAdapter(R.layout.picker_element_vertical, picker_vertical::scrollToView)
     }
 
 }
