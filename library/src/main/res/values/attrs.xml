@@ -5,6 +5,7 @@
             <enum name="horizontal" value="0" />
             <enum name="vertical" value="1" />
         </attr>
-        <attr name="fade" format="boolean" />
+        <attr name="selectedItemColor" format="reference|color" />
+        <attr name="fadeColor" format="reference|color" />
     </declare-styleable>
 </resources>

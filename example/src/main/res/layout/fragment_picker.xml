@@ -16,7 +16,8 @@
         android:layout_height="0dp" />
 
     <ch.swissdev.picker.Picker
-        custom:fade="true"
+        app:fadeColor="@color/colorAccent"
+        app:selectedItemColor="@color/colorPrimary"
         android:id="@+id/picker_horizontal_with_fade"
         app:layout_constraintTop_toBottomOf="@id/picker_horizontal"
         app:layout_constraintHeight_percent="0.2"
@@ -24,7 +25,7 @@
         android:layout_height="0dp" />
 
     <ch.swissdev.picker.Picker
-        custom:fade="true"
+        app:fadeColor="@color/colorPrimary"
         android:id="@+id/picker_horizontal_with_color"
         android:background="@color/colorAccent"
         app:layout_constraintTop_toBottomOf="@id/picker_horizontal_with_fade"
@@ -33,7 +34,8 @@
         android:layout_height="0dp" />
 
     <ch.swissdev.picker.Picker
-        custom:fade="true"
+        app:selectedItemColor="@color/colorPrimary"
+        app:fadeColor="@android:color/black"
         custom:orientation="vertical"
         android:id="@+id/picker_vertical"
         app:layout_constraintTop_toBottomOf="@id/picker_horizontal_with_color"

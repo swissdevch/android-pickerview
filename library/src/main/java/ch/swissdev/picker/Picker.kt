@@ -14,10 +14,13 @@ class Picker(context: Context, attrs: AttributeSet) : RecyclerView(context, attr
     init {
         val styledAttributes = context.theme.obtainStyledAttributes(attrs, R.styleable.Picker, 0, 0)
         isHorizontal = styledAttributes.getInteger(R.styleable.Picker_orientation, 0) == 0
-        val isFaded = styledAttributes.getBoolean(R.styleable.Picker_fade, false)
+
+        // TODO: Figure out how to do this without having to specify a fade color
+        val selectedItemColor = styledAttributes.getColor(R.styleable.Picker_selectedItemColor, -1).takeIf { it != -1 }
+        val fadeColor = styledAttributes.getColor(R.styleable.Picker_fadeColor, -1).takeIf { it != -1 }
 
         clipToPadding = false
-        layoutManager = PickerLayoutManager(context, if (isHorizontal) HORIZONTAL else VERTICAL, isFaded)
+        layoutManager = PickerLayoutManager(context, if (isHorizontal) HORIZONTAL else VERTICAL, selectedItemColor, fadeColor)
 
         val snapHelper = LinearSnapHelper()
         snapHelper.attachToRecyclerView(this)
