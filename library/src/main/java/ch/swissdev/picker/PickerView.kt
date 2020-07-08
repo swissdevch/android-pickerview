@@ -18,8 +18,8 @@ class PickerView(context: Context, attrs: AttributeSet) : RecyclerView(context, 
         isHorizontal = styledAttributes.getInteger(R.styleable.PickerView_orientation, 0) == 0
 
         // TODO: Figure out how to do this without having to specify a fade color
-        val selectedItemColor = styledAttributes.getColor(R.styleable.PickerView_selectedItemColor, -1).takeIf { it != -1 }
-        val fadeColor = styledAttributes.getColor(R.styleable.PickerView_fadeColor, -1).takeIf { it != -1 }
+        val selectedItemColor = styledAttributes.getColor(R.styleable.PickerView_selectedItemColor, 0).takeIf { it != 0 }
+        val fadeColor = styledAttributes.getColor(R.styleable.PickerView_fadeColor, 0).takeIf { it != 0 }
 
         clipToPadding = false
         layoutManager = PickerLayoutManager(context, if (isHorizontal) HORIZONTAL else VERTICAL, selectedItemColor, fadeColor)
