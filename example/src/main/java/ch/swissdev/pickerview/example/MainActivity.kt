@@ -1,4 +1,4 @@
-package ch.swissdev.picker.example
+package ch.swissdev.pickerview.example
 
 import android.os.Bundle
 import com.google.android.material.navigation.NavigationView

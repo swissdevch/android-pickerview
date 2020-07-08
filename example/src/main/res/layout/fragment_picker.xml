@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ch.swissdev.picker.PickerView
+    <ch.swissdev.pickerview.PickerView
         android:background="@color/colorAccent"
         android:id="@+id/picker_horizontal"
         app:layout_constraintTop_toTopOf="parent"
@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp" />
 
-    <ch.swissdev.picker.PickerView
+    <ch.swissdev.pickerview.PickerView
         app:fadeColor="@color/colorAccent"
         app:selectedItemColor="@color/colorPrimary"
         android:id="@+id/picker_horizontal_with_fade"
@@ -22,7 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp" />
 
-    <ch.swissdev.picker.PickerView
+    <ch.swissdev.pickerview.PickerView
         app:fadeColor="@color/colorPrimary"
         android:id="@+id/picker_horizontal_with_color"
         android:background="@color/colorAccent"
@@ -31,7 +31,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp" />
 
-    <ch.swissdev.picker.PickerView
+    <ch.swissdev.pickerview.PickerView
         app:selectedItemColor="@color/colorPrimary"
         app:fadeColor="@android:color/black"
         custom:orientation="vertical"

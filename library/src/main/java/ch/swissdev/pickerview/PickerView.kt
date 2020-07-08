@@ -1,4 +1,4 @@
-package ch.swissdev.picker
+package ch.swissdev.pickerview
 
 import android.content.Context
 import android.util.AttributeSet
