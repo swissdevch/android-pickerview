@@ -9,8 +9,9 @@ import androidx.recyclerview.widget.SnapHelper
 
 class PickerView(context: Context, attrs: AttributeSet) : RecyclerView(context, attrs) {
 
-    private val isHorizontal: Boolean
+    var positionListener: ((Int) -> Unit)? = null
 
+    private val isHorizontal: Boolean
     private val snapHelper: SnapHelper
 
     init {
@@ -26,6 +27,18 @@ class PickerView(context: Context, attrs: AttributeSet) : RecyclerView(context, 
 
         snapHelper = LinearSnapHelper()
         snapHelper.attachToRecyclerView(this)
+    }
+
+    override fun onScrollStateChanged(state: Int) {
+        super.onScrollStateChanged(state)
+
+        if (state != SCROLL_STATE_IDLE) {
+            return
+        }
+
+        snapHelper.findSnapView(layoutManager)?.let { snapView ->
+            layoutManager?.getPosition(snapView)?.let { positionListener?.invoke(it) }
+        }
     }
 
     fun getCurrentItem(): View? {
