@@ -24,6 +24,11 @@ class PickerLayoutManager(
 
     private val centerSmoothScroller = CenterSmoothScroller(context)
 
+    override fun onLayoutChildren(recycler: RecyclerView.Recycler?, state: RecyclerView.State?) {
+        super.onLayoutChildren(recycler, state)
+        updateColors()
+    }
+
     override fun scrollVerticallyBy(dy: Int, recycler: RecyclerView.Recycler?, state: RecyclerView.State?): Int {
         return super.scrollVerticallyBy(dy, recycler, state).also {
             updateColors()
@@ -57,6 +62,7 @@ class PickerLayoutManager(
         }
 
         // TODO: Get this working without TextView
+        // TODO: Add more comments explaining how it works
         (0 until childCount).mapNotNull(this::getChildAt).mapNotNull { it as? TextView }.forEach { view ->
             val childMiddle = if (orientation == VERTICAL) {
                 (getDecoratedTop(view) + getDecoratedBottom(view)) / 2

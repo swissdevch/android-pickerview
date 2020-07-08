@@ -1,4 +1,4 @@
-package ch.swissdev.library.example.ui.picker
+package ch.swissdev.picker.example
 
 import android.view.LayoutInflater
 import android.view.View
@@ -14,7 +14,7 @@ class PickerAdapter(
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
-    private val items = listOf("Foo", "Bar", "Lorem ipsum", "Baz")
+    private val items = listOf("Foo", "Bar", "Lorem ipsum", "Baz", "ABC", "DEF", "G")
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val textView = LayoutInflater.from(parent.context).inflate(elementLayout, parent, false) as TextView

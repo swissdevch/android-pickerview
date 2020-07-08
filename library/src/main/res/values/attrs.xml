@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="Picker">
+    <declare-styleable name="PickerView">
         <attr name="orientation" format="boolean">
             <enum name="horizontal" value="0" />
             <enum name="vertical" value="1" />

@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:custom="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.home.HomeFragment">
+    android:layout_height="match_parent">
 
-    <ch.swissdev.picker.Picker
+    <ch.swissdev.picker.PickerView
         android:background="@color/colorAccent"
         android:id="@+id/picker_horizontal"
         app:layout_constraintTop_toTopOf="parent"
@@ -15,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp" />
 
-    <ch.swissdev.picker.Picker
+    <ch.swissdev.picker.PickerView
         app:fadeColor="@color/colorAccent"
         app:selectedItemColor="@color/colorPrimary"
         android:id="@+id/picker_horizontal_with_fade"
@@ -24,7 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp" />
 
-    <ch.swissdev.picker.Picker
+    <ch.swissdev.picker.PickerView
         app:fadeColor="@color/colorPrimary"
         android:id="@+id/picker_horizontal_with_color"
         android:background="@color/colorAccent"
@@ -33,7 +31,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp" />
 
-    <ch.swissdev.picker.Picker
+    <ch.swissdev.picker.PickerView
         app:selectedItemColor="@color/colorPrimary"
         app:fadeColor="@android:color/black"
         custom:orientation="vertical"

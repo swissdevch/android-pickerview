@@ -7,7 +7,7 @@ android {
     buildToolsVersion "29.0.3"
 
     defaultConfig {
-        applicationId "ch.swissdev.library.example"
+        applicationId "ch.swissdev.picker.example"
         minSdkVersion 23
         targetSdkVersion 29
         versionCode 1

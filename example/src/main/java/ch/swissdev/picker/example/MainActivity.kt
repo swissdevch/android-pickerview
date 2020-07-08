@@ -1,4 +1,4 @@
-package ch.swissdev.library.example
+package ch.swissdev.picker.example
 
 import android.os.Bundle
 import com.google.android.material.navigation.NavigationView
@@ -27,9 +27,6 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment)
 
         appBarConfiguration = AppBarConfiguration(setOf(
-            R.id.nav_home,
-            R.id.nav_gallery,
-            R.id.nav_slideshow,
             R.id.nav_picker
         ), drawerLayout)
 

@@ -5,29 +5,35 @@ import android.util.AttributeSet
 import android.view.View
 import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.RecyclerView
-import ch.swissdev.library.R
+import androidx.recyclerview.widget.SnapHelper
 
-class Picker(context: Context, attrs: AttributeSet) : RecyclerView(context, attrs) {
+class PickerView(context: Context, attrs: AttributeSet) : RecyclerView(context, attrs) {
 
     private val isHorizontal: Boolean
 
+    private val snapHelper: SnapHelper
+
     init {
-        val styledAttributes = context.theme.obtainStyledAttributes(attrs, R.styleable.Picker, 0, 0)
-        isHorizontal = styledAttributes.getInteger(R.styleable.Picker_orientation, 0) == 0
+        val styledAttributes = context.theme.obtainStyledAttributes(attrs, R.styleable.PickerView, 0, 0)
+        isHorizontal = styledAttributes.getInteger(R.styleable.PickerView_orientation, 0) == 0
 
         // TODO: Figure out how to do this without having to specify a fade color
-        val selectedItemColor = styledAttributes.getColor(R.styleable.Picker_selectedItemColor, -1).takeIf { it != -1 }
-        val fadeColor = styledAttributes.getColor(R.styleable.Picker_fadeColor, -1).takeIf { it != -1 }
+        val selectedItemColor = styledAttributes.getColor(R.styleable.PickerView_selectedItemColor, -1).takeIf { it != -1 }
+        val fadeColor = styledAttributes.getColor(R.styleable.PickerView_fadeColor, -1).takeIf { it != -1 }
 
         clipToPadding = false
         layoutManager = PickerLayoutManager(context, if (isHorizontal) HORIZONTAL else VERTICAL, selectedItemColor, fadeColor)
 
-        val snapHelper = LinearSnapHelper()
+        snapHelper = LinearSnapHelper()
         snapHelper.attachToRecyclerView(this)
     }
 
-    fun scrollToView(tappedView: View) {
-        smoothScrollToPosition(getChildAdapterPosition(tappedView))
+    fun getCurrentItem(): View? {
+        return snapHelper.findSnapView(layoutManager)
+    }
+
+    fun scrollToView(view: View) {
+        smoothScrollToPosition(getChildAdapterPosition(view))
     }
 
     override fun onMeasure(widthSpec: Int, heightSpec: Int) {

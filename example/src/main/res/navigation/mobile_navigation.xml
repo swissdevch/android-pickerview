@@ -6,26 +6,8 @@
     app:startDestination="@id/nav_picker">
 
     <fragment
-        android:id="@+id/nav_home"
-        android:name="ch.swissdev.library.example.ui.home.HomeFragment"
-        android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
-
-    <fragment
-        android:id="@+id/nav_gallery"
-        android:name="ch.swissdev.library.example.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
-
-    <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="ch.swissdev.library.example.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
-
-    <fragment
         android:id="@+id/nav_picker"
-        android:name="ch.swissdev.library.example.ui.picker.PickerFragment"
+        android:name="ch.swissdev.picker.example.PickerFragment"
         android:label="@string/menu_picker"
         tools:layout="@layout/fragment_picker" />
 </navigation>
