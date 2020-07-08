@@ -7,4 +7,4 @@ sonar:
   tags:
     - android
   script:
-    - ./gradlew sonarqube -Dsonar.projectKey=landiwetter-android -Dsonar.host.url=https://sonar.swiss-dev.ch -Dsonar.login=$SONAR_LOGIN
+    - ./gradlew sonarqube -Dsonar.projectKey=android-picker -Dsonar.host.url=https://sonar.swiss-dev.ch -Dsonar.login=$SONAR_LOGIN
