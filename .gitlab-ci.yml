@@ -1,0 +1,10 @@
+sonar:
+  stage: test
+  variables:
+    ANDROID_HOME: '/Users/swissdev/Library/Android'
+  only:
+    - master
+  tags:
+    - android
+  script:
+    - ./gradlew sonarqube -Dsonar.projectKey=landiwetter-android -Dsonar.host.url=https://sonar.swiss-dev.ch -Dsonar.login=$SONAR_LOGIN
