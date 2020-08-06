@@ -14,6 +14,7 @@
         android:layout_height="0dp" />
 
     <ch.swissdev.pickerview.PickerView
+        app:applyColorFilterToImageViews="true"
         app:fadeColor="@color/colorAccent"
         app:selectedItemColor="@color/colorPrimary"
         android:id="@+id/picker_horizontal_with_fade"

@@ -7,6 +7,7 @@ import android.graphics.BlendMode
 import android.graphics.Color
 import android.graphics.PorterDuff
 import android.util.TypedValue
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.ColorInt
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,7 +20,8 @@ class PickerLayoutManager(
     context: Context,
     @RecyclerView.Orientation orientation: Int,
     @ColorInt private val selectedItemColor: Int?,
-    @ColorInt private val fadeColor: Int?
+    @ColorInt private val fadeColor: Int?,
+    private val applyColorFilterToImageViews: Boolean
 ) : LinearLayoutManager(context, orientation, false) {
 
     private val centerSmoothScroller = CenterSmoothScroller(context)
@@ -63,7 +65,7 @@ class PickerLayoutManager(
 
         // TODO: Get this working without TextView
         // TODO: Add more comments explaining how it works
-        (0 until childCount).mapNotNull(this::getChildAt).mapNotNull { it as? TextView }.forEach { view ->
+        (0 until childCount).mapNotNull(this::getChildAt).forEach { view ->
             val childMiddle = if (orientation == VERTICAL) {
                 (getDecoratedTop(view) + getDecoratedBottom(view)) / 2
             } else {
@@ -87,7 +89,11 @@ class PickerLayoutManager(
             }
 
             if (color != null) {
-                view.setTextColor(color as Int)
+                (view as? TextView)?.setTextColor(color as Int)
+
+                if (applyColorFilterToImageViews) {
+                    (view as? ImageView)?.setColorFilter(color as Int)
+                }
             }
         }
     }

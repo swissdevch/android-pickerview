@@ -14,16 +14,19 @@ class PickerView(context: Context, attrs: AttributeSet) : RecyclerView(context, 
     private val isHorizontal: Boolean
     private val snapHelper: SnapHelper
 
+    private val applyColorFilterToImageViews: Boolean
+
     init {
         val styledAttributes = context.theme.obtainStyledAttributes(attrs, R.styleable.PickerView, 0, 0)
         isHorizontal = styledAttributes.getInteger(R.styleable.PickerView_orientation, 0) == 0
+        applyColorFilterToImageViews = styledAttributes.getBoolean(R.styleable.PickerView_applyColorFilterToImageViews, false)
 
         // TODO: Figure out how to do this without having to specify a fade color
         val selectedItemColor = styledAttributes.getColor(R.styleable.PickerView_selectedItemColor, 0).takeIf { it != 0 }
         val fadeColor = styledAttributes.getColor(R.styleable.PickerView_fadeColor, 0).takeIf { it != 0 }
 
         clipToPadding = false
-        layoutManager = PickerLayoutManager(context, if (isHorizontal) HORIZONTAL else VERTICAL, selectedItemColor, fadeColor)
+        layoutManager = PickerLayoutManager(context, if (isHorizontal) HORIZONTAL else VERTICAL, selectedItemColor, fadeColor, applyColorFilterToImageViews)
 
         snapHelper = LinearSnapHelper()
         snapHelper.attachToRecyclerView(this)

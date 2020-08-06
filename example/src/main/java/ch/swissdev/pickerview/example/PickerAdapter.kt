@@ -17,8 +17,8 @@ class PickerAdapter(
     private val items = listOf("Foo", "Bar", "Lorem ipsum", "Baz", "ABC", "DEF", "G")
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val textView = LayoutInflater.from(parent.context).inflate(elementLayout, parent, false) as TextView
-        return ViewHolder(textView)
+        val view = LayoutInflater.from(parent.context).inflate(elementLayout, parent, false)
+        return ViewHolder(view)
     }
 
     override fun getItemCount(): Int {
@@ -26,7 +26,7 @@ class PickerAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        (holder.itemView as TextView).text = items[position]
+        (holder.itemView as? TextView)?.text = items[position]
         holder.itemView.setOnClickListener {
             callback(it)
         }

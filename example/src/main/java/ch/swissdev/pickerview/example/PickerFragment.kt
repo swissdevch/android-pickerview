@@ -23,17 +23,17 @@ class PickerFragment: Fragment() {
         // TODO: Get rid of callback
         picker_horizontal.adapter =
             PickerAdapter(
-                R.layout.picker_element_horizontal,
+                R.layout.picker_element_horizontal_text,
                 picker_horizontal::scrollToView
             )
         picker_horizontal_with_fade.adapter =
             PickerAdapter(
-                R.layout.picker_element_horizontal,
+                R.layout.picker_element_horizontal_image,
                 picker_horizontal_with_fade::scrollToView
             )
         picker_horizontal_with_color.adapter =
             PickerAdapter(
-                R.layout.picker_element_horizontal,
+                R.layout.picker_element_horizontal_text,
                 picker_horizontal_with_color::scrollToView
             )
         picker_vertical.adapter =

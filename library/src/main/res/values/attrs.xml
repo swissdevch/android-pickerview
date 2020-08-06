@@ -7,5 +7,6 @@
         </attr>
         <attr name="selectedItemColor" format="reference|color" />
         <attr name="fadeColor" format="reference|color" />
+        <attr name="applyColorFilterToImageViews" format="boolean" />
     </declare-styleable>
 </resources>
