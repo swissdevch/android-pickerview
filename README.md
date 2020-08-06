@@ -8,6 +8,6 @@
 
 ## Examples
 
-| Swiss national museum | Radio Tell | iSwissTool |
+| Swiss national museum | iSwissTool | Radio Tell |
 | --- | --- | --- |
-| ![Swiss national museum](screenshots/snm.png) | ![Radio Tell](screenshots/radio_tell.png) | ![iSwissTool](screenshots/iswisstool.png) |
+| ![Swiss national museum](screenshots/snm.png) | ![iSwissTool](screenshots/iswisstool.png) | ![Radio Tell](screenshots/radio_tell.png) |
