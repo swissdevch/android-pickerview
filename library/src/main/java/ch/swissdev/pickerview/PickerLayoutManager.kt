@@ -24,8 +24,6 @@ class PickerLayoutManager(
     private val applyColorFilterToImageViews: Boolean
 ) : LinearLayoutManager(context, orientation, false) {
 
-    private val centerSmoothScroller = CenterSmoothScroller(context)
-
     override fun onLayoutChildren(recycler: RecyclerView.Recycler?, state: RecyclerView.State?) {
         super.onLayoutChildren(recycler, state)
         updateColors()
@@ -48,6 +46,10 @@ class PickerLayoutManager(
     }
 
     override fun smoothScrollToPosition(recyclerView: RecyclerView?, state: RecyclerView.State?, position: Int) {
+        recyclerView ?: return
+
+        val centerSmoothScroller = CenterSmoothScroller(recyclerView.context)
+
         centerSmoothScroller.targetPosition = position
         startSmoothScroll(centerSmoothScroller)
     }
